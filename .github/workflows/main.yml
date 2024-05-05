@@ -1,0 +1,25 @@
+name: Display Secrets
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  display-secrets:
+    runs-on: ubuntu-latest
+    environment: 'AWS' # Specify the environment here
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Display Secrets
+        run: |
+          if [ -z "${{ secrets.SSH_HOST }}" ]; then
+            echo "SSH_HOST is empty"
+          else
+            echo "SSH_HOST is not empty"
+            echo "My Secret: ${{ secrets.SSH_HOST }}"
+          fi
+          echo "Another Secret: ${{ secrets.SSH_USER }}"
