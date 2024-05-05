@@ -22,4 +22,4 @@ jobs:
             echo "SSH_HOST is not empty"
             echo "My Secret: ${{ secrets.SSH_HOST }}"
           fi
-          echo "Another Secret: ${{ secrets.SSH_USER }}"
+          echo "Anothers Secret: ${{ secrets.SSH_USER }}"
